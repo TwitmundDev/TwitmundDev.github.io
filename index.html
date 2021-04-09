@@ -4,9 +4,67 @@
 <head>
 	<title>Portfolio</title>
 	<script type="text/javascript" src="main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-	<p>Hello World</p>
+	<div id='app'>
+		<div class="conatiner">
+			<div class="row">
+				<p class="jumbotron">Login: <input type="text" name="Login" v-model="user"/>Vous êtes connecté en tant que {{user}}</p>
 
+
+			</div>
+
+			<h1 v-bind:class="affichage">Produits</h1>
+			<div class="row">
+				<fiche-produit v-for="produit in produits">
+
+					
+				</fiche-produit>
+				<div class="col-3" v-for="produit in produits">
+					<p class="jumbotron">
+						{{produit}}<br>
+						<button v-on:click='commander(produit)'>Commander</button>
+					</p>
+				</div>
+			</div>
+
+
+			<h1 v-bind:class="affichage" v-if='commandes.length > 0'>Mon panier</h1>
+				<ul>
+					<li v-for="commande in commandes"> {{ commande }}</li>
+				</ul>
+			</div>
+
+
+
+
+
+
+	</div>
+
+	<script>
+		Vue.component('fiche-produit',{
+			 template:'<p class="jumbotron">Démo</p>'
+		})
+
+
+		var app = new Vue({
+			el:"#app",
+			data: {
+				user: 'Ellwane',
+				produits: ["Pizza", "Lasagnes", "Bigmac", "Fites"],
+				commandes:[],
+				affichage:"display-4"
+			},
+			methods:{
+				commander: function(produit) {
+					this.commandes.push(produit);
+				}
+			}
+
+		})
+	</script>
 </body>
 </html>
