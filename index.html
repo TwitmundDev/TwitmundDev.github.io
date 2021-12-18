@@ -1,70 +1,58 @@
-<!DOCTYPE html>
 <html>
-<meta charset="utf-8">
 <head>
-	<title>Portfolio</title>
-	<script type="text/javascript" src="main.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</script>
 </head>
-<body>
-	<div id='app'>
-		<div class="conatiner">
-			<div class="row">
-				<p class="jumbotron">Login: <input type="text" name="Login" v-model="user"/>Vous êtes connecté en tant que {{user}}</p>
+<body> 
+    <style>
+
+    @keyframes spin3D {
+        from { transform: rotateY(0deg) }
+        to { transform: rotateY(360deg) }
+      }
+      .spinhov3D {
+        animation-name: spin3D;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        /* linear | ease | ease-in | ease-out | ease-in-out */
+        animation-timing-function: ease-in-out;
+      }
 
 
-			</div>
+        @keyframes spinning {
+          from { transform: rotate(0deg) }
+          to { transform: rotate(360deg) }
+        }
+        .spin {
+          text-align: center;
+          animation-name: spinning;
+          animation-duration: 4s;
+          animation-iteration-count: infinite;
+          /* linear | ease | ease-in | ease-out | ease-in-out */
+          animation-timing-function: linear;
+        }
+        .hello{
+          margin: 10px auto 20px;
+          display: block;
+        }
 
-			<h1 v-bind:class="affichage">Produits</h1>
-			<div class="row">
-				<fiche-produit v-for="produit in produits">
+        .background{
+          margin: left;
+        }
 
-					
-				</fiche-produit>
-				<div class="col-3" v-for="produit in produits">
-					<p class="jumbotron">
-						{{produit}}<br>
-						<button v-on:click='commander(produit)'>Commander</button>
-					</p>
-				</div>
-			</div>
+        .background2{
+          margin: 0px 0px 0px;
+        }
 
+        body{
+        background-color: rgb(255, 0, 203);
 
-			<h1 v-bind:class="affichage" v-if='commandes.length > 0'>Mon panier</h1>
-				<ul>
-					<li v-for="commande in commandes"> {{ commande }}</li>
-				</ul>
-			</div>
-
-
-
-
-
-
-	</div>
-
-	<script>
-		Vue.component('fiche-produit',{
-			 template:'<p class="jumbotron">Démo</p>'
-		})
-
-
-		var app = new Vue({
-			el:"#app",
-			data: {
-				user: '',
-				produits: ["Pizza", "Lasagnes", "Bigmac", "Fites"],
-				commandes:[],
-				affichage:"display-4"
-			},
-			methods:{
-				commander: function(produit) {
-					this.commandes.push(produit);
-				}
-			}
-
-		})
-	</script>
-</body>
-</html>
+        }
+      </style>
+      
+      <img src="https://cdn.discordapp.com/attachments/585165430998564885/921886036429271050/IMAGE.png" class="spin , hello"/>
+      <img src="https://cdn.discordapp.com/attachments/585165430998564885/921886244177346580/123545.png" class="spinhov3D"/>
+      <img src="https://cdn.discordapp.com/attachments/585165430998564885/921886244777119835/00100110.png" class="spinhov3D"/>
+      <img src="https://cdn.discordapp.com/attachments/585165430998564885/921886244483522570/bite.png" class="spinhov3D"/>
+        <img src="https://www.gifimili.com/gif/2018/02/j-ai-19-ans-aujourd-hui.gif" border="0" alt="bite" class="spinhov3D">
+</body> 
+</html> 
